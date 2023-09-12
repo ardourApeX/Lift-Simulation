@@ -21,11 +21,14 @@ function closestLift(floornumber) {
 			nearestLift = key;
 		}
 	}
+	if (nearestLift === -1) {
+		if (liftQueue.slice(-1)[0] !== floornumber) liftQueue.push(floornumber);
+	}
 
 	return nearestLift;
 }
 
-function moveLift(liftNumber, floorNumber, direction) {
+function moveLift(liftNumber, floorNumber) {
 	liftStatus[liftNumber].moving = true;
 	if (liftStatus[liftNumber].floorNumber === floorNumber) {
 		liftStatus[liftNumber].moving = false;
@@ -46,7 +49,7 @@ function moveLift(liftNumber, floorNumber, direction) {
 }
 function callLift(floorNumber, direction) {
 	const nearestLift = closestLift(floorNumber);
-	nearestLift != -1 && moveLift(nearestLift, floorNumber, direction);
+	nearestLift != -1 && moveLift(nearestLift, floorNumber);
 }
 
 function closeLiftGate(liftNumber) {
@@ -66,6 +69,10 @@ function closeLiftGate(liftNumber) {
 		childDivs[0].classList.remove('left-closing-gate');
 		childDivs[1].classList.remove('right-closing-gate');
 		liftStatus[liftNumber].transitioning = false;
+		if (liftQueue.length > 0) {
+			moveLift(liftNumber, liftQueue[0]);
+			liftQueue.shift();
+		}
 	});
 }
 function openLiftGate(liftNumber) {

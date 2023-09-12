@@ -4,6 +4,7 @@ window.floorHeight = 100;
 window.noOfLifts = 0;
 window.noOfFloors = 0;
 window.liftStatus = {};
+window.liftQueue = [];
 
 //HTML Elements
 const form = document.getElementById('form');
@@ -72,11 +73,9 @@ function renderFloorsAndLifts() {
 	backButton.style.width = `${noOfLifts * 60 + 200}px`; //Building width based on input
 
 	viewElement(building); //Make building visible
-	viewElement(backButton);
 
 	//Attached event handler
 	building.addEventListener('click', liftButtonHandler);
 	backButton.addEventListener('click', refreshPage);
 }
 hideElement(building);
-hideElement(backButton);
