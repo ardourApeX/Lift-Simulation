@@ -11,7 +11,6 @@ const form = document.getElementById('form');
 const floorInput = document.getElementById('floor-input');
 const liftInput = document.getElementById('lift-input');
 const building = document.getElementById('building');
-const backButton = document.getElementById('back-button');
 const lifts = document.getElementById('lifts');
 
 function onSubmitHandler(e) {
@@ -32,8 +31,7 @@ function liftButtonHandler(event) {
 		callLift(parseInt(floorNumber), buttonType);
 	}
 }
-function refreshPage(e) {
-	e.preventDefault();
+function refreshPage() {
 	window.location.reload();
 }
 function renderFloorsAndLifts() {
@@ -70,12 +68,16 @@ function renderFloorsAndLifts() {
 	lifts.innerHTML = liftInnerHTML;
 	building.innerHTML += floorInnerHTML;
 	building.style.width = `${noOfLifts * 60 + 200}px`; //Building width based on input
-	backButton.style.width = `${noOfLifts * 60 + 200}px`; //Building width based on input
 
 	viewElement(building); //Make building visible
 
-	//Attached event handler
-	building.addEventListener('click', liftButtonHandler);
+	//Once the building is visible
+	const backButton = document.getElementById('back-button');
+	backButton.style.width = `${noOfLifts * 60 + 200}px`; //Building width based on input
 	backButton.addEventListener('click', refreshPage);
+
+	//Attach event listeners to lift buttons
+	building.addEventListener('click', liftButtonHandler);
 }
+
 hideElement(building);
