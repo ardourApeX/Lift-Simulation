@@ -38,11 +38,11 @@ function moveLift(liftNumber, floorNumber, direction) {
 
 	lift.style.transitionDuration = '2s';
 	lift.style.transitionTimingFunction = 'ease-in-out';
-	setTimeout(() => {
+	delayedFunction(2000, () => {
 		liftStatus[liftNumber].floorNumber = parseInt(floorNumber);
 		liftStatus[liftNumber].moving = false;
 		openLiftGate(liftNumber);
-	}, 2000);
+	});
 }
 function callLift(floorNumber, direction) {
 	const nearestLift = closestLift(floorNumber);
@@ -62,7 +62,7 @@ function closeLiftGate(liftNumber) {
 	childDivs[1].classList.remove('right-opening-gate');
 	childDivs[1].classList.add('right-closing-gate');
 
-	delayedFunction(1000, () => {
+	delayedFunction(2500, () => {
 		childDivs[0].classList.remove('left-closing-gate');
 		childDivs[1].classList.remove('right-closing-gate');
 		liftStatus[liftNumber].transitioning = false;
@@ -77,7 +77,7 @@ function openLiftGate(liftNumber) {
 	childDivs[1].classList.add('right-opening-gate');
 	childDivs[0].classList.add('left-opening-gate');
 
-	delayedFunction(1000, () => {
+	delayedFunction(2500, () => {
 		closeLiftGate(liftNumber);
 	});
 }

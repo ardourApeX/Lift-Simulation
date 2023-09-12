@@ -12,7 +12,7 @@ const liftInput = document.getElementById('lift-input');
 const building = document.getElementById('building');
 const lifts = document.getElementById('lifts');
 
-function onSubmitHandler() {
+function onSubmitHandler(e) {
 	window.noOfLifts = parseInt(liftInput.value || '0');
 	window.noOfFloors = parseInt(floorInput.value || '0');
 	if (window.noOfFloors === 0 || window.noOfLifts === 0) {

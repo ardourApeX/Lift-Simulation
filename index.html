@@ -9,7 +9,7 @@
 	<body>
 		<div id="root">
 			<div id="form">
-				<form action="#" onsubmit="onSubmitHandler()">
+				<form action="#" onsubmit="onSubmitHandler(); return false;">
 					<label for="floor-input">No of floors</label>
 					<input type="number" id="floor-input" />
 					<label for="lift-input">No of lift(s)</label>
@@ -18,9 +18,7 @@
 				</form>
 			</div>
 			<div id="building">
-				<div id="lifts" class="lifts">
-		
-				</div>
+				<div id="lifts" class="lifts"></div>
 			</div>
 		</div>
 		<script src="helpers.js"></script>

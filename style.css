@@ -130,17 +130,19 @@ body,
 
 .right-opening-gate {
 	clip-path: inset(0 0 0 100%) !important;
-	transition-duration: 1s;
+	transition-duration: 2.5s !important;
 }
 .left-opening-gate {
 	clip-path: inset(0 100% 0 0) !important;
-	transition-duration: 1s;
+	transition-duration: 2.5s !important;
 }
 .left-closing-gate {
 	right: 20px;
-	transition-duration: 1s;
+	animation-duration: 2.5s !important;
+	transition-duration: 2.5s !important;
 }
 .right-closing-gate {
 	left: 20px;
-	transition-duration: 1s;
+	animation-duration: 2.5s !important;
+	transition-duration: 2.5s !important;
 }
