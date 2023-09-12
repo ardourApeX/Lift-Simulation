@@ -15,7 +15,7 @@ function closestLift(floornumber) {
 		if (
 			!value.moving &&
 			!value.transitioning &&
-			Math.abs(value.floorNumber - floornumber) < leastFloorDifference
+			Math.abs(value.floorNumber - floornumber) <= leastFloorDifference
 		) {
 			leastFloorDifference = Math.abs(value.floorNumber - floornumber);
 			nearestLift = key;

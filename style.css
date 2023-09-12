@@ -23,11 +23,9 @@ body,
 	justify-content: center;
 	align-items: center;
 	flex-wrap: wrap;
-	background-color: rgba(239, 239, 239, 0.392);
 }
 
 #form {
-	box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 	border-radius: var(--soft-radius);
 	margin: auto;
 	max-width: 400px;
@@ -35,6 +33,7 @@ body,
 	width: 50%;
 	padding: var(--soft-padding);
 	height: 50%;
+	border: 1px solid black;
 }
 #form form {
 	display: flex;
@@ -127,7 +126,13 @@ body,
 .lift div:nth-child(2) {
 	left: 21px; /* 1 px for border width */
 }
-
+#back-button {
+	width: 100%;
+}
+#back-button button {
+	margin-bottom: 40px;
+	float: left;
+}
 .right-opening-gate {
 	clip-path: inset(0 0 0 100%) !important;
 	transition-duration: 2.5s !important;
