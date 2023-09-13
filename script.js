@@ -16,7 +16,7 @@ const lifts = document.getElementById('lifts');
 function onSubmitHandler(e) {
 	window.noOfLifts = parseInt(liftInput.value || '0');
 	window.noOfFloors = parseInt(floorInput.value || '0');
-	if (window.noOfFloors === 0 || window.noOfLifts === 0) {
+	if (window.noOfFloors <= 0 || window.noOfLifts <= 0) {
 		return alert('Please enter valid no of floors or lifts');
 	}
 	renderFloorsAndLifts();

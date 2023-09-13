@@ -39,9 +39,11 @@ function moveLift(liftNumber, floorNumber) {
 		floorHeight * parseInt(floorNumber) + 2 * floorNumber
 	}px`;
 
-	lift.style.transitionDuration = '2s';
+	const liftMovementDuration =
+		Math.abs(liftStatus[liftNumber].floorNumber - floorNumber) * 2;
+	lift.style.transitionDuration = `${liftMovementDuration}s`;
 	lift.style.transitionTimingFunction = 'ease-in-out';
-	delayedFunction(2000, () => {
+	delayedFunction(liftMovementDuration * 1000, () => {
 		liftStatus[liftNumber].floorNumber = parseInt(floorNumber);
 		liftStatus[liftNumber].moving = false;
 		openLiftGate(liftNumber);
